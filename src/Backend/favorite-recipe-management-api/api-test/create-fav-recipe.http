@@ -1,0 +1,8 @@
+POST http://localhost:8585/favoriteRecipes
+content-type: application/json
+
+{
+    "id" : 1,
+    "userId" : 456,
+    "recipeId" : 9246
+}

@@ -1,0 +1,9 @@
+PUT http://localhost:9090/users/9
+content-type: application/json
+
+{
+  "username": "",
+  "currentpassword": "boat123ABC?",
+  "newpassword": "boot123ABC?",
+  "newpasswordconfirmed": "boot123ABC?"
+}

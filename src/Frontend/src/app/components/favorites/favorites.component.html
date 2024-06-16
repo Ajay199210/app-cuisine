@@ -1,0 +1,66 @@
+@if(this.userFavorites.length > 0) {
+<table class="table table-hover">
+    <thead class="text-center">
+        <tr>
+            <th scope="col">#</th>
+            <th scope="col">Meal Thumb</th>
+            <th scope="col">Meal</th>
+            <th>Category</th>
+            <th>Tags</th>
+            <th colspan="2">Actions</th>
+        </tr>
+    </thead>
+    @for(fav of this.userFavorites; track $index) {
+    <tbody class="table-group-divider text-center align-middle">
+        <tr>
+            <td>{{ $index }}</td>
+            <td><img src="{{ fav.strMealThumb }}" class="rounded" alt="Meal Thumb" style="width: 75px; height: 75px;">
+            </td>
+            <td>{{ fav.strMeal }}</td>
+            <td>{{ fav.strCategory }}</td>
+            <td>{{ fav.strTags }}</td>
+            <td><a routerLink="../recipes/{{ fav.idMeal}}">View recipe</a></td>
+            <td>
+                <a routerLink="." id="fav-{{ this.favIds[$index] }}" class="" (click)="removeRecipe($event)">
+                    Remove from favorites
+                </a>
+            </td>
+        </tr>
+    </tbody>
+    }
+</table>
+}
+
+<div class="row row-cols-1 row-cols-md-3 g-4 my-1">
+    @for(fav of this.userFavorites; track $index) {
+    <div class="col">
+        <div class="card">
+            <img src="{{ fav.strMealThumb }}" class="card-img-top" alt="Recipe Image" /> <!-- Recipe meal image -->
+            <div class="card-body">
+                <h5 class="card-title">{{ fav.strMeal }}</h5> <!-- Recipe meal name -->
+                <p class="card-text">
+                    <!-- Instructions -->
+                    {{ fav.strInstructions.substring(0, 75) }}...
+                </p>
+                <a routerLink="../recipes/{{ fav.idMeal}}">
+                    <button class="btn btn-primary me-1">View recipe</button>
+                </a> |
+                <button id="fav-{{ this.favIds[$index] }}" class="btn btn-danger" (click)="removeRecipe($event)">
+                    Remove from favorites
+                </button>
+            </div>
+        </div>
+    </div>
+    }
+    @empty {
+    <div class="lc-block mx-auto my-1 rounded p-3 w-50 fst-italic text-center">
+        <div editable="rich">
+            <p class="h3">
+                No favorites yet!
+                <br /><br />
+                Login and check some <a routerLink="../recipes">recipes</a> to add them to your favorites list!
+            </p>
+        </div>
+    </div>
+    }
+</div>

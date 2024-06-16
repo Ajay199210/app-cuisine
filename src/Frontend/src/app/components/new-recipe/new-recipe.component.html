@@ -1,0 +1,136 @@
+<div class="accordion-item">
+    <div class="accordion accordion-flush my-5" id="accordionExample">
+        <h2 class="accordion-header">
+            <span class="text-primary">-&gt; </span>
+            <button class="btn btn-outline-primary w-25" type="button" data-bs-toggle="collapse"
+                data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                <i class="fa fa-solid fa-angle-down"></i> New recipe
+            </button>
+            <span class="text-primary"> &lt;-</span>
+        </h2>
+        <!-- Add recipe Form -->
+        <div id="collapseOne" class="accordion-collapse collapse bg-dark text-light col-6 my-3 rounded"
+            data-bs-parent="#accordionExample">
+            <div class="accordion-body">
+                <form class="needs-validation mt-3" (ngSubmit)="addRecipe()">
+                    <!-- Recipe Name -->
+                    <div class="mb-3">
+                        <label for="recipeName" class="form-label">Recipe Name</label>
+                        <input type="text" class="form-control" id="recipeName" name="recipeName"
+                            [(ngModel)]="newRecipeName" placeholder="Spaghetti" required>
+                        <div class="valid-feedback">
+                            Looks good!
+                        </div>
+                    </div>
+
+                    <!-- Recipe Category -->
+                    <div class="my-3">
+                        <label for="" class="form-label">Category</label>
+
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="category" id="cat-vegetarian"
+                                [(ngModel)]="newRecipeCategory" value="vegetarian" />
+                            <label class="form-check-label" for="cat-vegetarian">Vegetarian</label>
+                        </div>
+
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="category" id="cat-seafood"
+                                [(ngModel)]="newRecipeCategory" value="seafood" />
+                            <label class="form-check-label" for="cat-seafood">Seafood</label>
+                        </div>
+
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="category" [(ngModel)]="newRecipeCategory"
+                                value="pasta" id="cat-pasta" />
+                            <label class="form-check-label" for="cat-pasta">Pasta</label>
+                        </div>
+
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="category" id="cat-dessert"
+                                [(ngModel)]="newRecipeCategory" value="dessert" />
+                            <label class="form-check-label" for="cat-dessert">Dessert</label>
+                        </div>
+                    </div>
+
+                    <hr />
+
+                    <!-- Instructions -->
+                    <div class="my-2">
+                        <label for="newRecipeInstructions" class="form-label">Instructions</label>
+                        <textarea class="form-control" id="newRecipeInstructions" name="instructions"
+                            [(ngModel)]="newRecipeInstructions" placeholder="Type your recipe instructions or steps..."
+                            required></textarea>
+                        <div class="invalid-feedback">
+                            Enter steps required to make the recipe...
+                        </div>
+                    </div>
+
+                    <hr />
+
+                    <div class="my-3">
+                        <label for="formFile" class="form-label">Recipe Thumbnail</label>
+                        <input class="form-control" type="file" id="formFile">
+                    </div>
+
+                    <hr />
+
+                    <!-- Ingredients & measures -->
+                    <div class="mb-3">
+                        <div class="row my-2">
+                            <label for="recipeName" class="form-label">Ingredients</label>
+                            <div class="col">
+                                <input type="text" class="form-control ingredient" placeholder="Ingredient 1"
+                                    [(ngModel)]="newRecipeIngredients" required>
+                                <div class="valid-feedback">
+                                    Looks good!
+                                </div>
+                            </div>
+                            <div class="col">
+                                <input type="text" class="form-control measure" placeholder="Measure 1" required>
+                                <div class="valid-feedback">
+                                    Looks good!
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row my-3">
+                            <div class="col">
+                                <input type="text" class="form-control ingredient" placeholder="Ingredient 2" required>
+                                <div class="valid-feedback">
+                                    Looks good!
+                                </div>
+                            </div>
+                            <div class="col">
+                                <input type="text" class="form-control measure" placeholder="Measure 2" required>
+                                <div class="valid-feedback">
+                                    Looks good!
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Add new input elements for ingredients & measures -->
+                        <div id="newInputs" class="my-2"></div>
+                    </div>
+
+                    <div style="display: inline-block;">
+                        <button class="btn btn-warning my-1" (click)="addInputs($event)"
+                            [disabled]="this.recipeIngredientsCount >= 20">Add ingredient/measure</button>
+                        <span class="text-warning mx-2 fst-italic" [hidden]="this.recipeIngredientsCount < 20">
+                            Maximum of <span class="fst-underline text-decoration-underline fw-bold">20
+                                ingredients</span> can be added</span>
+                    </div>
+
+                    <!-- Submit -->
+                    <div class="my-1">
+                        <button class="btn btn-primary col-4" type="submit">Submit</button>
+                    </div>
+                </form>
+
+
+                <!-- Response -->
+                <div class="bg-warning text-dark rounded text-center my-1" [hidden]="responseContent == ''">
+                    <p class="p-2">{{ this.responseContent }}</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,67 @@
+<div class="bg-dark text-light rounded p-5 fs-5">
+  <p>
+    We are thrilled to extend a warm invitation to you, inviting you to contribute your culinary expertise and
+    creativity to our ever-growing collection of recipes. At Recette Remix, we believe that food is
+    more than just sustenance; it's a cultural cornerstone, a source of joy, and a medium for sharing stories and
+    traditions. And who better to enrich our culinary tapestry than you?
+  </p>
+
+  <p>Here's why we'd love for you to share your recipe with us:</p>
+
+  <ul>
+    <li>
+      <strong>Community Building:</strong> Food has a remarkable ability to bring people together. By sharing your
+      recipe, you're not
+      just
+      sharing a list of ingredients and instructions; you're sharing a piece of yourself - your traditions, your
+      memories,
+      and your passion for good food. Let's come together as a community to celebrate our shared love for cooking and
+      eating.
+    </li>
+    <li>
+      <strong>Variety and Diversity:</strong> Our community thrives on diversity - of flavors, of techniques, and of
+      culinary
+      traditions.
+      By adding your recipe to our collection, you're enriching our culinary landscape and broadening our horizons.
+      Whether it's a classic dish from your hometown or a fusion creation that blends different cuisines, we welcome
+      the
+      richness and diversity of your culinary heritage.
+    </li>
+    <li>
+      <strong>Feedback and Engagement:</strong> Sharing your recipe opens the door to feedback, suggestions, and
+      discussions from
+      fellow
+      foodies. Whether it's tips for ingredient substitutions, serving suggestions, or anecdotes about your experience
+      making the dish, we encourage you to engage with other members of the community and foster meaningful
+      connections
+      through food.
+    </li>
+  </ul>
+</div>
+
+<hr />
+
+<!-- Add a recipe -->
+<app-new-recipe />
+
+<!-- Recipes Gallery -->
+<div class="row row-cols-1 row-cols-md-3 g-4">
+  @for(recipe of this.recipes; track recipe) {
+  <div class="col">
+    <div class="card bg-dark text-light">
+      <img src="{{ recipe.strMealThumb }}" class="card-img-top" alt="Recipe Image" /> <!-- Recipe meal image -->
+      <div class="card-body">
+        <h5 class="card-title">{{ recipe.strMeal }}</h5> <!-- Recipe meal name -->
+        <p class="card-text">
+          <!-- Instructions -->
+          {{ recipe.strInstructions.substring(0, 75) }}...
+        </p>
+        <a routerLink="{{recipe.idMeal}}"><button class="btn btn-primary me-1">View recipe</button></a>
+        |
+        <button type="button" id="recipe-{{recipe.idMeal}}" class="btn btn-warning fa fa-star"
+          (click)="addToFav($event)"> Add to favorites</button>
+      </div>
+    </div>
+  </div>
+  }
+</div>

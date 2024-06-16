@@ -1,0 +1,14 @@
+Web framework used : https://github.com/gin-gonic/gin
+
+Package used for hashing passwords : https://pkg.go.dev/golang.org/x/crypto/bcrypt
+
+Package for generating JWT tokens : https://github.com/golang-jwt/jwt
+
+Testing the API :
+In VS Code, install the extension REST Client by Huachao Mao. Once this is installed, you can create http files for the requests you want to test. Examples can
+be found in the folder api-test. To test an HTTP request in one of these files, click right and choose the option Send request. A response should appear in a new tab.
+Make sure the program is running with the command (go run .) in order for this to work
+
+Debugging GO in VS Code :
+launch.json file contains necessary config for enabling debugging
+Informational article with more info : https://www.digitalocean.com/community/tutorials/debugging-go-code-with-visual-studio-code#step-2-debugging-with-breakpoints

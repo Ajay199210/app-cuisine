@@ -1,0 +1,77 @@
+<!-- Recipe Details -->
+<div>
+    <div class="row fs-5">
+        <div class="col-5">
+            <img src="{{ this.recipe.strMealThumb }}" class="meal-image img-fluid rounded" alt="Meal Image">
+        </div>
+        <div class="col-4 fw-normal">
+            <h2>Informations sur le plat</h2>
+            <p>
+                Lorem ipsum dolor sit, amet consectetur adipisicing elit. Nesciunt cumque eos perspiciatis, officia
+                temporibus enim illo nobis autem facere assumenda impedit repudiandae dicta architecto delectus.
+            </p>
+            <ul class="list-group">
+                <li class="list-group-item list-group-item-success p-3">
+                    <h4 class="align-middle">{{ this.recipe.strMeal }}</h4>
+                </li>
+                <li class="list-group-item list-group-item-success p-3 align-middle">
+                    Category: {{ this.recipe.strCategory }}
+                </li>
+                <li class="list-group-item list-group-item-success p-3 align-middle">
+                    Area: {{ this.recipe.strArea }}
+                </li>
+                <li class="list-group-item list-group-item-success p-3 align-middle">
+                    Tags: {{ this.recipe.strTags }}
+                </li>
+                <li class="list-group-item list-group-item-success p-3 align-middle
+                        d-flex justify-content-between align-items-center">
+                    Ingredients
+                    <span class="badge bg-primary rounded-pill">
+                        {{ this.ingredientsCount }}
+                    </span>
+                </li>
+            </ul>
+            <br />
+        </div>
+        <div class="col-3">
+            <ul class="list-group overflow-auto" style="max-height: 525px;">
+                <li class="list-group-item list-group-item-success p-3 align-middle">
+                    <h4 class="align-middle">Ingredients</h4>
+                </li>
+                @for(ingredient of this.ingredients; track ingredient) {
+                <li class="list-group-item list-group-item-success p-3">
+                    {{ ingredient }}
+                </li>
+                }
+            </ul>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-8 mt-4 mb-5">
+            <h2>Préparation</h2>
+            <ul class="list-group list-group-flush ms-3 lh-lg fw-normal fs-5">
+                @for(instruction of this.instructions; track instruction) {
+                <li class="mb-2">
+                    {{ instruction }}
+                </li>
+                }
+            </ul>
+        </div>
+
+        <div class="col-4 my-3 p-2 text-light text-center bg-dark rounded h-100">
+            <h2 class="text-uppercase">Measures</h2>
+            <br />
+            <table class="table-info text-light w-100">
+                <tbody>
+                    @for(measure of this.measures; track measure) {
+                    <tr class="w-100 border-bottom">
+                        <td><i class="fa fa-spoon fa-1x"></i></td>
+                        <td>{{ measure }}</td>
+                        <td><i class="fa fa-spoon fa-1x"></i></td>
+                    </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

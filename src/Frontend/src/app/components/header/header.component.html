@@ -1,0 +1,40 @@
+<!-- Header -->
+<header class="bg-warning p-2 mb-1">
+    <nav class="navbar navbar-expand-lg">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#">
+                <img src="../../../assets/img/logo.png" class="img-fluid rounded" style="width:100px;height: 100px;"
+                    alt="Logo">
+            </a>
+
+            <!-- <div class="collapse navbar-collapse" id="navbarSupportedContent"> -->
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0 mx-5 text-uppercase fw-bold border-top border-bottom border-dark">
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" routerLink=''>Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" routerLink="/recipes" role="button">Recipes</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" routerLink="/favorites" role="button">Favorites</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" routerLink="/blog" role="button">Blog</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" routerLink="/contact">Contact us</a>
+                    </li>
+                </ul>
+
+                <form class="d-flex me-5" role="search" (submit)="searchRecipe($event)">
+                    <input class="form-control form-control-light me-2" type="text" placeholder="Search" role="search" aria-label="Search"
+                         id="search" name="search" [(ngModel)]="searchQuery">
+                    <button class="btn btn-outline-success" type="submit">Search</button>
+                </form>
+            <!-- </div> -->
+
+            <!-- Authentification -->
+            <app-auth></app-auth>
+        </div>
+    </nav>
+</header>

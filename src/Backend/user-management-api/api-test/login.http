@@ -1,0 +1,7 @@
+POST http://localhost:9090/login
+content-type: application/json
+
+{
+  "username": "meowstache",
+  "password": "TEST123abc!"
+}

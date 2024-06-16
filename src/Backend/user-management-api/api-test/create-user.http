@@ -1,0 +1,9 @@
+POST https://shh5ocfmw5.execute-api.ca-central-1.amazonaws.com/signup
+content-type: application/json
+
+{
+  "email": "test@example.com",
+  "username": "testyzzzzz",
+  "password": "TEST123abc!",
+  "passwordconfirmed": "TEST123abc!"
+}

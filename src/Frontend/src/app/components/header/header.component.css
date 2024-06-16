@@ -1,0 +1,21 @@
+header {
+    font-size: 1.125em;
+}
+
+header ul li {
+    margin-right: 5px;
+    margin-left: 5px;
+}
+
+.nav-link:hover {
+    text-decoration: underline;
+    color: darkgreen;
+}
+
+.activebutton {
+    box-shadow: inset 0 1px 0 0 #dcecfb;
+    background: #bddbfa linear-gradient(to bottom, #bddbfa 5%, #80b5ea 100%);
+    border: 1px solid #358ce4;
+    color: black;
+    text-shadow: 0 1px 0 #528ecc;
+}

@@ -1,0 +1,111 @@
+<!-- Login -->
+<span [hidden]="!isUserAuthenticated" class="mx-2 p-0 rounded align-middle">
+    <a routerLink="/profile">Hello {{ this.username }}!</a>
+</span>
+
+<button type="button" class="btn btn-outline-dark me-2" data-bs-toggle="modal" data-bs-target="#signinModal"
+data-bs-whatever="@signin" [hidden]="isUserAuthenticated">Login</button>
+
+<button type="button" class="btn btn-outline-dark mx-2" [hidden]="!isUserAuthenticated"
+    (click)="logout()">Sign out</button>
+
+<!-- Login modal -->
+<div class="modal fade" id="signinModal" tabindex="-1" aria-labelledby="signinModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header bg-dark text-light">
+                <h3 class="modal-title" id="signinModalLabel">Login</h3>
+                <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"
+                    aria-label="Cancel"></button>
+            </div>
+            <div class="modal-body">
+                <form (ngSubmit)="login()">
+                    <div class="mb-3">
+                        <label for="name" class="col-form-label">Username :</label>
+                        <input type="text" class="form-control" id="username" name="username"
+                            placeholder="Username" [(ngModel)]="username" required />
+                    </div>
+                    <div class="mb-3">
+                        <label for="password" class="col-form-label">Password :</label>
+                        <input type="password" class="form-control" name="password" required [(ngModel)]="password"
+                            id="password" placeholder="Password" />
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary btnClose" data-bs-dismiss="modal">
+                            Cancel
+                        </button>
+                        <button type="submit" class="btn btn-primary">Login</button>
+                    </div>
+                </form>
+                <div class="w-100 text-center mt-2">
+                    <div class="spinner-border text-primary m-0" style="display: none;" role="status">
+                        <span class="visually-hidden" [hidden]="!isSpinnerToggled">Loading...</span>
+                    </div>
+                    <!-- <div class="bg-dark text-light rounded align-middle m-0"> -->
+                    <div class="text-danger fs-4 fst-italic text-center align-middle m-0">
+                        <p [hidden]="isSpinnerToggled">{{ this.responseContent.message }}</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Sign up -->
+<button type="button" class="btn btn-dark me-2" data-bs-toggle="modal" data-bs-target="#signupModal"
+    data-bs-whatever="@signup" [hidden]="isUserAuthenticated">Sign up</button>
+
+<!-- Sign up modal -->
+<div class="modal fade" id="signupModal" tabindex="-1" aria-labelledby="signupModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header bg-dark text-light">
+                <h3 class="modal-title" id="signupModalLabel">Sign up</h3>
+                <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"
+                    aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <form (ngSubmit)="createUserAcct()">
+                    <div class="mb-3">
+                        <label for="name" class="col-form-label">Username:</label>
+                        <input type="text" class="form-control" id="username" name="username"
+                            placeholder="Username" [(ngModel)]="username" required />
+                        <!-- <div *ngIf="!usernameValid" class="text text-warning mt-1 fst-italic">
+                            Username not valid
+                        </div> -->
+                    </div>
+                    <div class="mb-3">
+                        <label for="courriel" class="col-form-label">Email:</label>
+                        <input type="email" class="form-control" name="email" required [(ngModel)]="email" id="courriel"
+                            placeholder="jhon.doe@exemple.com" />
+                    </div>
+                    <div class="mb-3">
+                        <label for="password" class="col-form-label">Password:</label>
+                        <input type="password" class="form-control" name="password" required [(ngModel)]="password"
+                            id="password" placeholder="Password" />
+                    </div>
+                    <div class="mb-3">
+                        <label for="password" class="col-form-label">Confirm password:</label>
+                        <input type="password" class="form-control" id="confirmPassword" name="confirmPassword"
+                            [(ngModel)]="confirmPass" placeholder="Password" required />
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
+                            Cancel
+                        </button>
+                        <button type="submit" class="btn btn-primary">Create account</button>
+                    </div>
+                </form>
+                <div class="w-100 text-center mt-2 p-3">
+                    <div class="spinner-border text-primary m-0" style="display: none;" role="status">
+                        <span class="visually-hidden">Loading...</span>
+                    </div>
+                    <!-- <div class="bg-dark text-light rounded text-center m-0"> -->
+                    <div class="text-danger fs-4 fst-italic text-center align-middle m-0">
+                        <p [hidden]="isSpinnerToggled">{{ this.responseContent.message }}</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

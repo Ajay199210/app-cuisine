@@ -1,0 +1,217 @@
+<!-- Body - Jumbotron -->
+<div class="p-5 mb-5 bg-body-tertiary rounded-3 text-light"
+    style="background-image: url('../assets/img/bg.jpg'); background-size: cover;">
+    <div class="py-5">
+        <h1 class="display-5 fw-bold">Random Dish</h1>
+        <p class="col-md-8 fs-4">
+            Discover our delight of the day: fresh, flavorful, and prepared with passion by our team of chefs. Don't
+            miss the opportunity to taste our dish of the day, a unique culinary experience not to be missed during your
+            visit with us!
+        </p>
+        <button class="btn bg-success bg-gradient btn-lg text-light" type="button" (click)="showPlatDuJour()">
+            Show me a random recipe
+        </button>
+    </div>
+</div>
+
+<!-- Body - plat du jour -->
+<div>
+    <div class="row fs-5">
+        <div class="col-5">
+            <img src="{{ this.mealImg }}" class="meal-image img-fluid rounded" alt="Meal Image">
+        </div>
+        <div class="col-4 fw-normal">
+            <h2>Recipe Description</h2>
+            <p>
+                Lorem ipsum dolor sit, amet consectetur adipisicing elit. Nesciunt cumque eos perspiciatis, officia
+                temporibus enim illo nobis autem facere assumenda impedit repudiandae dicta architecto delectus.
+            </p>
+            <ul class="list-group">
+                <li class="list-group-item list-group-item-success p-3">
+                    <h4 class="align-middle">{{ this.meal }}</h4>
+                </li>
+                <li class="list-group-item list-group-item-success p-3 align-middle">
+                    Category: {{
+                    this.category }}
+                </li>
+                <li class="list-group-item list-group-item-success p-3 align-middle">
+                    Area: {{ this.area }}
+                </li>
+                <li class="list-group-item list-group-item-success p-3 align-middle">
+                    Tags: {{ this.tags }}
+                </li>
+                <li class="list-group-item list-group-item-success p-3 align-middle
+                        d-flex justify-content-between align-items-center">
+                    Ingredients
+                    <span class="badge bg-primary rounded-pill">
+                        {{ this.ingredientsCount }}
+                    </span>
+                </li>
+            </ul>
+            <br />
+        </div>
+        <div class="col-3">
+            <ul class="list-group overflow-auto" style="max-height: 525px;">
+                <li class="list-group-item list-group-item-success p-3 align-middle">
+                    <h4 class="align-middle">Ingredients</h4>
+                </li>
+                @for(ingredient of this.ingredients; track ingredient) {
+                <li class="list-group-item list-group-item-success p-3">
+                    {{ ingredient }}
+                </li>
+                }
+            </ul>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-8 mt-4 mb-5">
+            <h2>Preparation</h2>
+            <ul class="list-group list-group-flush ms-3 lh-lg fw-normal fs-5">
+                @for(instruction of this.instructions; track instruction) {
+                <li class="mb-2">
+                    {{ instruction }}
+                </li>
+                }
+            </ul>
+        </div>
+
+        <div class="col-4 my-3 p-2 text-light text-center bg-dark rounded h-100">
+            <h2 class="text-uppercase">Measurements</h2>
+            <br />
+            <table class="table-info text-light w-100">
+                <tbody>
+                    @for(measure of this.measures; track measure) {
+                    <tr class="w-100 border-bottom">
+                        <td><i class="fa fa-spoon fa-1x"></i></td>
+                        <td>{{ measure }}</td>
+                        <td><i class="fa fa-spoon fa-1x"></i></td>
+                    </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+
+        <hr />
+
+        <!-- Body - catégories -->
+        <div class="container mt-5 mb-5">
+            <div class="row">
+                <h2 class="text-center mb-5">Recipes by categories</h2>
+                <div class="col-3">
+                    <div class="card" style="width: 18rem;">
+                        <img src="../../../assets/img/category_vegies.jpg" class="card-img-top"
+                            alt="Vegetarian categorie">
+                        <div class="card-body">
+                            <h5 class="card-title">Vegetarian</h5>
+                            <p class="card-text">
+                                Fresh, flavorful veggie delights for every taste.
+                            </p>
+                            <a href="#" class="btn btn-primary">View recipes</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-3">
+                    <div class="card" style="width: 18rem;">
+                        <img src="../../../assets/img/category_seafood.png" class="card-img-top"
+                            alt="Seafood categorie">
+                        <div class="card-body">
+                            <h5 class="card-title">Seafood</h5>
+                            <p class="card-text">
+                                Ocean-fresh seafood, expertly prepared.
+                            </p>
+                            <a href="#" class="btn btn-primary">View recipes</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-3">
+                    <div class="card" style="width: 18rem;">
+                        <img src="../../../assets/img/category_pasta.png" class="card-img-top" alt="Pasta categorie">
+                        <div class="card-body">
+                            <h5 class="card-title">Pasta</h5>
+                            <p class="card-text">
+                                Authentic pasta dishes, simply delicious.
+                            </p>
+                            <a href="#" class="btn btn-primary">View recipes</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-3">
+                    <div class="card" style="width: 18rem;">
+                        <img src="../../../assets/img/category_dessert.png" class="card-img-top"
+                            alt="Burgers categorie">
+                        <div class="card-body">
+                            <h5 class="card-title">Dessert</h5>
+                            <p class="card-text">
+                                Sweet treats to satisfy every craving.
+                            </p>
+                            <a href="#" class="btn btn-primary">View recipes</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <hr />
+
+        <!-- Body - section vidéos -->
+        <div class="container">
+            <h3>Recipe Videos</h3>
+            <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Id, sed.</p>
+            <div class="row">
+                <div class="col-6">
+                    <div class="ratio ratio-16x9">
+                        <iframe [src]="mealVideo" title="YouTube video" allowfullscreen></iframe>
+                    </div>
+                    <p class="mt-2"><strong>{{ this.meal }}</strong></p>
+                </div>
+                <div class="col-3">
+                    <div class="row">
+                        <iframe class="mt-1" [src]="mealVideo" title="YouTube video" allowfullscreen></iframe>
+                    </div>
+                    <div class="row">
+                        <iframe class="mt-1" [src]="mealVideo" title="YouTube video" allowfullscreen></iframe>
+                    </div>
+                </div>
+                <div class="col-3">
+                    <div class="row">
+                        <div class="col">
+                            <h6>Popularity</h6>
+                            <h6>XY%</h6>
+                        </div>
+                        <div class="col">
+                            <h6>Score</h6>
+                            <i class="fa fa-star d-inline"></i>
+                            <i class="fa fa-star d-inline"></i>
+                            <i class="fa fa-star d-inline"></i>
+                            <i class="fa fa-star d-inline"></i>
+                        </div>
+                        <div class="row">
+                            <div class="col">
+                                <h6>Popularity</h6>
+                                <h6>XY%</h6>
+                            </div>
+                            <div class="col">
+                                <h6>Score</h6>
+                                <i class="fa fa-star d-inline"></i>
+                                <i class="fa fa-star d-inline"></i>
+                                <i class="fa fa-star d-inline"></i>
+                                <i class="fa fa-star d-inline"></i>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col">
+                                <h6>Popularity</h6>
+                                <h6>XY%</h6>
+                            </div>
+                            <div class="col">
+                                <h6>Score</h6>
+                                <i class="fa fa-star d-inline"></i>
+                                <i class="fa fa-star d-inline"></i>
+                                <i class="fa fa-star d-inline"></i>
+                                <i class="fa fa-star d-inline"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
