@@ -7,6 +7,10 @@ Ce projet est une application full-stack qui permet aux utilisateurs d'explorer 
 Vous pouvez consulter leur site en visitant le lien suivant :
 https://www.themealdb.com/*
 
+![image](https://github.com/Ajay199210/app-cuisine/assets/46723178/c12f1136-df05-425e-8cf7-176481d469b0)
+
+![image](https://github.com/Ajay199210/app-cuisine/assets/46723178/39a26225-afe9-4d5f-a0a5-f4f75130289b)
+
 ## Sommaire
 
 - [Fonctionnalités](#fonctionnalités)
