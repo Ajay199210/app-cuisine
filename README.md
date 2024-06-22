@@ -72,3 +72,6 @@ https://www.themealdb.com/*
    ```
    
   ***N.B***: *la commande `go run .` télécharge les dépendances automatiquement.*
+
+## Contributions
+Merci à [aaguerre1105](https://github.com/aaguerre1105) et [amarboutiti](https://github.com/amarboutiti) pour leurs contributions au projet !
